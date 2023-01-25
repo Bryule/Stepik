@@ -8,25 +8,62 @@ using System.Threading;
 
 namespace Stepik
 {
-    class Program
+    internal class Program
     {
-        
+
         static void Main(string[] args)
         {
-            Car ferrari = new Car();
-            ferrari.
+
         }
-
     }
-
-    class Car
+    class Performer
     {
         public string Name;
-        private string _horsePower;
-        public int Age;
-        private float _maxSpeed;
+
+        public Performer(string name)
+        {
+            Name = name;
+        }
+    }
+
+    class Board
+    {
+        public Task[] Tasks;
+
+        public Board (Task[] tasks)
+        {
+            Tasks = tasks;
+        }
+
+        public void ShowAllTasks()
+        {
+            for (int i = 0; i < Tasks.Length; i++)
+            {
+                Tasks[i].ShowInfo();
+            }
+        }
+    }
+    class Task
+    {
+        public Performer Worker;
+        public string Description;
+
+        public Task (Performer worker, string description)
+        {
+            Worker = worker;
+            Description = description;
+        }
+        public void ShowInfo()
+        {
+            Console.WriteLine($"Отвественный - {Worker}\nОписание задачи - {Description}\n");
+        }
     }
 }
+
+
+
+
+
 
 
 
