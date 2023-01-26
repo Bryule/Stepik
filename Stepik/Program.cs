@@ -13,52 +13,38 @@ namespace Stepik
 
         static void Main(string[] args)
         {
+            Renderer renderer = new Renderer();
+            Player player = new Player(55, 10);
 
         }
     }
-    class Performer
+
+    class Renderer
     {
-        public string Name;
-
-        public Performer(string name)
+        public void Draw(int x, int y, char character = '@')
         {
-            Name = name;
+            Console.CursorVisible = false;
+            Console.SetCursorPosition(x, y);
+            Console.Write(character);
+            Console.ReadKey(true);
         }
     }
 
-    class Board
+    class Player
     {
-        public Task[] Tasks;
+        public int X;
+        public int Y;
 
-        public Board (Task[] tasks)
+        public Player(int x, int y)
         {
-            Tasks = tasks;
-        }
-
-        public void ShowAllTasks()
-        {
-            for (int i = 0; i < Tasks.Length; i++)
-            {
-                Tasks[i].ShowInfo();
-            }
+            X = x;
+            Y = y;
         }
     }
-    class Task
-    {
-        public Performer Worker;
-        public string Description;
-
-        public Task (Performer worker, string description)
-        {
-            Worker = worker;
-            Description = description;
-        }
-        public void ShowInfo()
-        {
-            Console.WriteLine($"Отвественный - {Worker}\nОписание задачи - {Description}\n");
-        }
-    }
+    
+   
 }
+
 
 
 
